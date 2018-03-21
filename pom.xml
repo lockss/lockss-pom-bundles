@@ -56,18 +56,22 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <url>${scmUrl}</url>
   </scm>
   
+  <properties>
+    <lockss.core.version>1.0.0</lockss.core.version>
+  </properties>
+  
   <dependencies>
   
       <!-- lockss-core in compile scope and lockss-core's tests in test scope -->  
     <dependency>
       <groupId>org.lockss.laaws</groupId>
       <artifactId>lockss-core</artifactId>
-      <version>1.0.0</version>
+      <version>${lockss.core.version}</version>
     </dependency>
     <dependency>
       <groupId>org.lockss.laaws</groupId>
       <artifactId>lockss-core</artifactId>
-      <version>1.0.0</version>
+      <version>${lockss.core.version}</version>
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>
