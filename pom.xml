@@ -43,7 +43,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   
   <groupId>org.lockss</groupId>
   <artifactId>lockss-core-parent-pom</artifactId>
-  <version>1.1.0-SNAPSHOT</version>
+  <version>1.1.0</version>
   <packaging>pom</packaging>
   
   <name>lockss-core-parent-pom</name>
