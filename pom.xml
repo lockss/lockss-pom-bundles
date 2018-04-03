@@ -57,7 +57,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   </scm>
   
   <properties>
-    <lockss.core.version>1.1.0</lockss.core.version>
+    <lockss.core.version>1.1.1</lockss.core.version>
   </properties>
   
   <dependencies>
