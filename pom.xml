@@ -47,7 +47,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <packaging>pom</packaging>
   
   <name>lockss-core-bundle</name>
-  <description>POM bundle for lockss-core</description>
+  <description>POM bundle for LOCKSS projects using lockss-core</description>
   
   <!-- Must be in every lockss-parent-pom/lockss-spring-parent-pom descendant -->
   <scm>
