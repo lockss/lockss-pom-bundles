@@ -38,16 +38,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <parent>
     <groupId>org.lockss</groupId>
     <artifactId>lockss-parent-pom</artifactId>
-    <version>1.5.0</version>
+    <version>1.6.0</version>
   </parent>
   
   <groupId>org.lockss</groupId>
-  <artifactId>lockss-core-parent-pom</artifactId>
-  <version>1.3.0-SNAPSHOT</version>
+  <artifactId>lockss-core-bundle</artifactId>
+  <version>1.1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   
-  <name>lockss-core-parent-pom</name>
-  <description>Maven infrastructure common to LOCKSS projects built with lockss-core</description>
+  <name>lockss-core-bundle</name>
+  <description>POM bundle for lockss-core</description>
   
   <!-- Must be in every lockss-parent-pom/lockss-spring-parent-pom descendant -->
   <scm>
@@ -55,27 +55,63 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <developerConnection>${scmDeveloperConnection}</developerConnection>
     <url>${scmUrl}</url>
   </scm>
-  
-  <properties>
-    <lockss.core.version>1.1.1</lockss.core.version>
-  </properties>
-  
+
   <dependencies>
-  
-      <!-- lockss-core in compile scope and lockss-core's tests in test scope -->  
+
     <dependency>
       <groupId>org.lockss.laaws</groupId>
       <artifactId>lockss-core</artifactId>
-      <version>${lockss.core.version}</version>
+      <version>${project.version}</version>
+      <exclusions>
+        <!-- brings Servlet API 2.5 via repo-core, Spring especially spring-test needs 3.0.1 or better -->
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>  
+        </exclusion>
+        <!-- lockss-core bring CXF which bring an old, incompatible spring-asm... -->
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-asm</artifactId>
+        </exclusion>
+        <!-- ...and spring-tx, which we don't set up Spring Boot to use properly -->
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+        </exclusion>
+        <!-- Avoid http://www.slf4j.org/codes.html#log4jDelegationLoop -->
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>log4j-over-slf4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
+
+    <!-- tests JAR; see above -->
     <dependency>
       <groupId>org.lockss.laaws</groupId>
       <artifactId>lockss-core</artifactId>
-      <version>${lockss.core.version}</version>
+      <version>${project.version}</version>
       <classifier>tests</classifier>
-      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>  
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-asm</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
-    
+
   </dependencies>
   
 </project>
