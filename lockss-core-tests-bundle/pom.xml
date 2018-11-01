@@ -34,25 +34,65 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
+  
+  <parent>
+    <groupId>org.lockss</groupId>
+    <artifactId>lockss-parent-pom</artifactId>
+    <version>1.9.0-SNAPSHOT</version>
+    <relativePath />
+  </parent>
+  
   <groupId>org.lockss</groupId>
-  <artifactId>lockss-core-bundles</artifactId>
+  <artifactId>lockss-core-tests-bundle</artifactId>
   <version>1.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   
-  <name>lockss-core-bundles</name>
-  <description>Aggregate project of POM bundles for LOCKSS projects using lockss-core</description>
+  <name>lockss-core-tests-bundle</name>
+  <description>POM bundle for LOCKSS projects using lockss-core's tests</description>
+  
+  <!-- FIXME: this needs adjusting in multi-module layouts -->
+  <!-- Must be in every lockss-parent-pom descendant -->
+  <scm>
+    <connection>${scmConnection}</connection>
+    <developerConnection>${scmDeveloperConnection}</developerConnection>
+    <url>${scmUrl}</url>
+  </scm>
 
-  <modules>
-    <module>lockss-core-bundle</module>
-    <module>lockss-core-tests-bundle</module>
-  </modules>
+  <dependencies>
 
-  <!-- Don't install or deploy this dummy aggregator -->
-  <properties>
-    <maven.install.skip>true</maven.install.skip>
-    <maven.deploy.skip>true</maven.deploy.skip>
-  </properties>
+    <dependency>
+      <groupId>org.lockss.laaws</groupId>
+      <artifactId>lockss-core</artifactId>
+      <version>${project.version}</version>
+      <classifier>tests</classifier>
+      <exclusions>
+        <!-- brings Servlet API 2.5 via repo-core, Spring especially spring-test needs 3.0.1 or better -->
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>  
+        </exclusion>
+        <!-- lockss-core bring CXF which bring an old, incompatible spring-asm... -->
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-asm</artifactId>
+        </exclusion>
+        <!-- ...and spring-tx, which we don't set up Spring Boot to use properly -->
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+        </exclusion>
+        <!-- Avoid http://www.slf4j.org/codes.html#log4jDelegationLoop -->
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>log4j-over-slf4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 
+  </dependencies>
+  
 </project>
-
