@@ -1,4 +1,5 @@
 /.project
 /target/
+/*/target/
 /pom.xml.versionsBackup
 /.settings/
