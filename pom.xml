@@ -35,24 +35,33 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.lockss</groupId>
+    <artifactId>lockss-parent-pom</artifactId>
+    <version>1.10.0-SNAPSHOT</version>
+    <relativePath />
+  </parent>
+  
   <groupId>org.lockss</groupId>
   <artifactId>lockss-core-bundles</artifactId>
   <version>1.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <name>lockss-core-bundles</name>
-  <description>Aggregate project of POM bundles for LOCKSS projects using lockss-core</description>
+  <description>Aggregator of POM bundles for LOCKSS projects using lockss-core</description>
 
   <modules>
     <module>lockss-core-bundle</module>
     <module>lockss-core-tests-bundle</module>
   </modules>
 
-  <!-- Don't install or deploy this dummy aggregator -->
+  <!-- Only perform tasks on the child projects -->
   <properties>
+    <build.info.skip>true</build.info.skip>
+    <build.java.skip>true</build.java.skip>
+    <build.docker.skip>true</build.docker.skip>
     <maven.install.skip>true</maven.install.skip>
     <maven.deploy.skip>true</maven.deploy.skip>
   </properties>
 
 </project>
-
