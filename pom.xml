@@ -36,16 +36,18 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.lockss</groupId>
-  <artifactId>lockss-core-bundles</artifactId>
+  <artifactId>lockss-pom-bundles</artifactId>
   <version>1.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   
-  <name>lockss-core-bundles</name>
+  <name>lockss-pom-bundles</name>
   <description>Aggregator of POM bundles for LOCKSS projects using lockss-core</description>
 
   <modules>
     <module>lockss-core-bundle</module>
     <module>lockss-core-tests-bundle</module>
+    <module>lockss-junit4-bundle</module>
+    <module>lockss-junit5-bundle</module>
   </modules>
 
   <!-- Only perform tasks on the child projects -->
