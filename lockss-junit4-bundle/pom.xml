@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
 Copyright (c) 2000-2019, Board of Trustees of Leland Stanford Jr. University
 All rights reserved.
 
@@ -26,3 +29,42 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.lockss</groupId>
+    <artifactId>lockss-parent-pom</artifactId>
+    <version>1.10.0</version>
+    <relativePath />
+  </parent>
+  
+  <groupId>org.lockss</groupId>
+  <artifactId>lockss-junit4-bundle</artifactId>
+  <version>1.2.0</version>
+  <packaging>pom</packaging>
+  
+  <name>lockss-junit4-bundle</name>
+  <description>POM bundle for LOCKSS projects using JUnit 4</description>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.group.junit4}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <version>${version.group.hamcrest}</version>
+    </dependency>
+
+  </dependencies>
+
+</project>
