@@ -48,6 +48,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <module>lockss-core-tests-bundle</module>
     <module>lockss-junit4-bundle</module>
     <module>lockss-junit5-bundle</module>
+    <module>lockss-plugin-parent-pom</module>
   </modules>
 
   <!-- Not itself a real artifact, do not install or deploy -->
