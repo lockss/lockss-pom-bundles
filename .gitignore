@@ -5,3 +5,6 @@
 /.settings/
 logs/
 *~
+
+/pom.xml.bak
+/*/pom.xml.bak
