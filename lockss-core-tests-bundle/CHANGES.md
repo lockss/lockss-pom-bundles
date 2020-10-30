@@ -1,5 +1,9 @@
 # Release Notes
 
+## Major Changes Since 2.0.3.0
+
+*   Upgraded to `lockss-core` 2.0.4.0-SNAPSHOT
+
 ## 2.0.3.0
 
 ### Features
