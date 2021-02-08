@@ -1,6 +1,6 @@
-# Release Notes
+# `lockss-core-bundle` Release Notes
 
-## Major Changes Since 2.0.3.0
+## Changes Since 2.0.3.0
 
 *   Upgraded to `lockss-core` 2.0.4.0-SNAPSHOT
 
