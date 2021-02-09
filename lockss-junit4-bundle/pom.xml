@@ -54,6 +54,12 @@ POSSIBILITY OF SUCH DAMAGE.
   <dependencies>
 
     <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${version.group.junit5-jupiter}</version>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${version.group.junit4}</version>
