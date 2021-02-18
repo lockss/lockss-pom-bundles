@@ -57,13 +57,7 @@ POSSIBILITY OF SUCH DAMAGE.
         See JUnit 5 diagram at:
         http://junit.org/junit5/docs/current/user-guide/#dependency-diagram .
     -->
-  
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <version>${version.group.junit5-jupiter}</version>
-    </dependency>
-    
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -71,10 +65,25 @@ POSSIBILITY OF SUCH DAMAGE.
     </dependency>
     
     <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.group.junit4}</version>
+    </dependency>
+
+    <!-- For org.lockss.util.test.VariantTest et al. -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>${version.group.junit5-jupiter}</version>
+    </dependency>
+    
+<!-- FIXME  
+    <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-runner</artifactId>
       <version>${version.group.junit5-platform}</version>
     </dependency>
+-->
 
     <dependency>
       <groupId>org.hamcrest</groupId>
