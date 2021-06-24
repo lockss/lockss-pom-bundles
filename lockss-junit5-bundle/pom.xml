@@ -39,13 +39,13 @@ POSSIBILITY OF SUCH DAMAGE.
   <parent>
     <groupId>org.lockss</groupId>
     <artifactId>lockss-parent-pom</artifactId>
-    <version>1.13.0-SNAPSHOT</version>
+    <version>1.13.0</version>
     <relativePath />
   </parent>
   
   <groupId>org.lockss</groupId>
   <artifactId>lockss-junit5-bundle</artifactId>
-  <version>1.4.0-SNAPSHOT</version>
+  <version>1.4.0</version>
   <packaging>pom</packaging>
   
   <name>lockss-junit5-bundle</name>
