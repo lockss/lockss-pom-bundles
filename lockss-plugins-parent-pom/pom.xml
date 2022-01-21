@@ -263,7 +263,7 @@ POSSIBILITY OF SUCH DAMAGE.
 	</property>
       </activation>
       <properties>
-	<keystore.file>resource:org/lockss/test/develop.keystore</keystore.file>
+	<keystore.file>resource:org/lockss/plugin/develop.keystore</keystore.file>
 	<keystore.alias>develop</keystore.alias>
 	<keystore.password>devpass</keystore.password>
       </properties>
