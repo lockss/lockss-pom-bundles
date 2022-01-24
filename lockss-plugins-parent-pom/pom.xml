@@ -179,12 +179,35 @@ POSSIBILITY OF SUCH DAMAGE.
         </executions>
       </plugin>
 
-      <!-- Run PluginPackager -->
+      <!-- Validate then package plugins -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>${version.plugin.exec-maven-plugin}</version>
         <executions>
+
+          <!-- Run PluginWellformednessTests on all plugins -->
+          <execution>
+            <id>validate-plugins</id>
+            <phase>test</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <skip>${buildingParent}</skip>
+              <executable>java</executable>
+              <arguments>
+                <argument>-classpath</argument>
+                <classpath/>
+                <argument>-Dorg.lockss.defaultLogLevel=${loglevel}</argument>
+                <argument>org.lockss.test.PluginWellformednessTests</argument>
+                <argument>-pd</argument>
+                <argument>${basedir}/target/classes</argument>
+              </arguments>
+            </configuration>
+          </execution>
+
+          <!-- Run PluginPackager on all plugins -->
           <execution>
             <id>package-plugins</id>
             <phase>package</phase>
@@ -212,7 +235,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <argument>-keypass</argument>
                 <argument>${keystore.password}</argument>
                 <argument>-explodelib</argument>
-           </arguments>
+              </arguments>
             </configuration>
           </execution>
         </executions>
