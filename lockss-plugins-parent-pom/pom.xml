@@ -54,6 +54,9 @@ POSSIBILITY OF SUCH DAMAGE.
   <description>Maven infrastructure to build LOCKSS plugins and tdbs</description>
   <properties>
 
+    <keystore.file>none</keystore.file>
+    <keystore.alias>none</keystore.alias>
+    <keystore.password>none</keystore.password>
   </properties>
 
   <dependencies>
@@ -158,6 +161,7 @@ POSSIBILITY OF SUCH DAMAGE.
               </goals>
               <phase>prepare-package</phase>
               <configuration>
+                <skip>${skipSignPlugin}</skip>
                 <target>
                   <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
 		  <if>
@@ -198,6 +202,7 @@ POSSIBILITY OF SUCH DAMAGE.
                 <goal>exec</goal>
               </goals>
               <configuration>
+                <skip>${skipWellFormednessTests}</skip>
                 <executable>java</executable>
                 <arguments>
                   <argument>-classpath</argument>
@@ -240,6 +245,30 @@ POSSIBILITY OF SUCH DAMAGE.
                 </arguments>
               </configuration>
             </execution>
+
+            <!-- Run PluginWellformednessTests again, on packaged
+                 plugin jars -->
+            <execution>
+              <id>validate-plugin-jars</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+              <configuration>
+                <skip>${skipWellFormednessTests}</skip>
+                <executable>java</executable>
+                <classpathScope>runtime</classpathScope>
+                 <arguments>
+                  <argument>-classpath</argument>
+                  <classpath/>
+                  <argument>-Dorg.lockss.defaultLogLevel=${loglevel}</argument>
+                  <argument>org.lockss.test.PluginWellformednessTests</argument>
+                  <argument>-pjd</argument>
+                  <argument>${basedir}/target/pluginjars</argument>
+                </arguments>
+              </configuration>
+            </execution>
+
           </executions>
         </plugin>
       </plugins>
@@ -292,6 +321,11 @@ POSSIBILITY OF SUCH DAMAGE.
           </execution>
           <execution>
             <id>package-plugins</id>
+            <inherited>false</inherited>
+            <phase>none</phase>
+          </execution>
+          <execution>
+            <id>validate-plugin-jars</id>
             <inherited>false</inherited>
             <phase>none</phase>
           </execution>
