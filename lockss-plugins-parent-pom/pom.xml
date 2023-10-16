@@ -382,6 +382,19 @@ POSSIBILITY OF SUCH DAMAGE.
 	<keystore.password>devpass</keystore.password>
       </properties>
     </profile>
+    <profile>
+      <!-- jdk8 builds plugins compatible with lockss-daemon running
+           in Java 1.8 -->
+      <id>jdk8</id>
+      <activation>
+	<property>
+          <name>jdk8</name>
+	</property>
+      </activation>
+      <properties>
+	<build.java.version>8</build.java.version>
+      </properties>
+    </profile>
   </profiles>
 
 </project>
