@@ -61,6 +61,11 @@ POSSIBILITY OF SUCH DAMAGE.
 
   <dependencies>
     <dependency>
+      <groupId>org.lockss.laaws</groupId>
+      <artifactId>lockss-plugin-compat</artifactId>
+      <version>${version.lockss.lockss-plugin-compat}</version>
+    </dependency>
+    <dependency>
       <groupId>org.lockss</groupId>
       <artifactId>lockss-core-bundle</artifactId>
       <version>${version.lockss.lockss-core-bundle}</version>
@@ -76,11 +81,6 @@ POSSIBILITY OF SUCH DAMAGE.
       <groupId>com.jayway.jsonpath</groupId>
       <artifactId>json-path</artifactId>
       <version>${version.dependency.json-path}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.lockss.laaws</groupId>
-      <artifactId>lockss-plugin-compat</artifactId>
-      <version>${version.lockss.lockss-plugin-compat}</version>
     </dependency>
     <dependency>
       <groupId>org.lockss</groupId>
