@@ -57,6 +57,8 @@ POSSIBILITY OF SUCH DAMAGE.
     <keystore.file>none</keystore.file>
     <keystore.alias>none</keystore.alias>
     <keystore.password>none</keystore.password>
+    <!-- Needs lockss-legacy repository for lockss-plugins -->
+    <repository.enabled.lockss-legacy>true</repository.enabled.lockss-legacy>
   </properties>
 
   <dependencies>
