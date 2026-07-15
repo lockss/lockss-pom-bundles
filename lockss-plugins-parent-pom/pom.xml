@@ -41,13 +41,13 @@ POSSIBILITY OF SUCH DAMAGE.
   <parent>
     <groupId>org.lockss</groupId>
     <artifactId>lockss-parent-pom</artifactId>
-    <version>1.17.1</version>
+    <version>1.18.0</version>
     <relativePath/>
   </parent>
 
   <groupId>org.lockss</groupId>
   <artifactId>lockss-plugins-parent-pom</artifactId>
-  <version>1.6.1</version>
+  <version>1.7.0</version>
   <packaging>pom</packaging>
 
   <name>lockss-plugins-parent-pom</name>
@@ -57,9 +57,16 @@ POSSIBILITY OF SUCH DAMAGE.
     <keystore.file>none</keystore.file>
     <keystore.alias>none</keystore.alias>
     <keystore.password>none</keystore.password>
+    <!-- Needs lockss-legacy repository for lockss-plugins -->
+    <repository.enabled.lockss-legacy>true</repository.enabled.lockss-legacy>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.lockss.laaws</groupId>
+      <artifactId>lockss-plugin-compat</artifactId>
+      <version>${version.lockss.lockss-plugin-compat}</version>
+    </dependency>
     <dependency>
       <groupId>org.lockss</groupId>
       <artifactId>lockss-core-bundle</artifactId>
@@ -76,11 +83,6 @@ POSSIBILITY OF SUCH DAMAGE.
       <groupId>com.jayway.jsonpath</groupId>
       <artifactId>json-path</artifactId>
       <version>${version.dependency.json-path}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.lockss.laaws</groupId>
-      <artifactId>lockss-plugin-compat</artifactId>
-      <version>${version.lockss.lockss-plugin-compat}</version>
     </dependency>
     <dependency>
       <groupId>org.lockss</groupId>

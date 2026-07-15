@@ -1,5 +1,10 @@
 # `lockss-core-tests-bundle` Release Notes
 
+## 2.10.0 (LOCKSS 2.0.91-beta2)
+
+*   Upgraded to `lockss-core` 2.10.0.
+ 
+
 ## Changes Since 2.0.3.0
 
 *   Upgraded to `lockss-core` 2.0.4.0-SNAPSHOT

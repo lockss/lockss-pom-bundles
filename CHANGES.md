@@ -1,4 +1,6 @@
 # `lockss-pom-bundles` Release Notes
+No longer maintained. See change logs of individual sub-projects.
+
 
 ## Changes Since 1.4.0
 
